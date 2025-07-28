@@ -40,40 +40,55 @@ const ProductPage: React.FC = () => {
 
 	return (
 		<ProductContext.Provider value={product}>
-			{/* Full-width background */}
-			<div className="absolute top-0 left-0 w-screen h-80 z-[-1] bg-neutral-900" />
+			{/* Main Section with Background and Content */}
+			<div className="relative w-full">
+				{/* Background */}
+				<div className="absolute top-0 left-0 w-full h-80 bg-neutral-900 z-[-1]" />
 
-			{/* Centered content */}
-			<div className="relative flex md:flex-row flex-col-reverse gap-10 items-start justify-center md:px-8 px-4 md:pt-30 pt-20 text-left min-h-[400px] max-w-[1100px] mx-auto">
-				{/* Left Column */}
-				<div className="max-w-xl z-10">
-					{/* Title and Description */}
-					<h1 className="text-3xl font-bold text-gray-200">
-						{product?.data?.title}
-					</h1>
-					<div className="text-gray-400 font-semibold pt-5">
-						{parse(product?.data?.description)}
+				{/* Content */}
+				<div
+					className="
+						relative flex md:flex-row flex-col-reverse gap-10 items-start justify-center
+						md:px-8 px-4
+						pt-20
+						text-left
+						min-h-[400px]
+						max-w-[1280px] mx-auto
+					"
+				>
+					{/* Left Column */}
+					<div className="w-full md:w-[760px] z-10">
+						<div>
+							<h1 className="text-3xl font-bold text-gray-200">
+								{product?.data?.title}
+							</h1>
+							<div className="text-white pt-3">
+								(81.8% শিক্ষার্থী কোর্স শেষে ৫ রেটিং দিয়েছেন)
+							</div>
+							<div className="text-gray-400 font-semibold pt-5">
+								{parse(product?.data?.description)}
+							</div>
+						</div>
+
+						<div className="mt-40">
+							<Instructor />
+							<CourseLayout />
+							<LearningOutcome />
+							<ContentPreview />
+							<CourseDetails />
+							<ExclusiveFeatures />
+							<FreeItems />
+							<StudentsOpinion />
+							<Requirements />
+							<Payment />
+							<FAQ />
+						</div>
 					</div>
 
-					{/* All other components */}
-					<div className="mt-40">
-						<Instructor />
-						<CourseLayout />
-						<LearningOutcome />
-						<ContentPreview />
-						<CourseDetails />
-						<ExclusiveFeatures />
-						<FreeItems />
-						<StudentsOpinion />
-						<Requirements />
-						<Payment />
-						<FAQ />
+					{/* Right Column */}
+					<div className="w-full md:w-[400px] shrink-0 sticky top-0 self-start">
+						<CourseSidebar />
 					</div>
-				</div>
-
-				{/* Right Column */}
-				<div className="w-full md:w-[380px] shrink-0">
-					<CourseSidebar />
 				</div>
 			</div>
 		</ProductContext.Provider>
