@@ -6,8 +6,11 @@ import {
 	CourseLayout,
 	CourseSidebar,
 	ExclusiveFeatures,
+	FAQ,
+	FreeItems,
 	Instructor,
 	LearningOutcome,
+	StudentsOpinion,
 } from "../components";
 import { ProductContext } from "../context/ProductContext";
 import productAPI from "../services/productAPI";
@@ -50,6 +53,9 @@ const ProductPage = () => {
 						<ContentPreview />
 						<CourseDetails />
 						<ExclusiveFeatures />
+						<FreeItems />
+						<StudentsOpinion />
+						<FAQ />
 					</div>
 				</div>
 

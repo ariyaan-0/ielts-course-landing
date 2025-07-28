@@ -22,7 +22,7 @@ const LearningOutcome = () => {
 							>
 								<Check
 									className="text-blue-600 flex-shrink-0 pt-1.5"
-									size={30}
+									size={24}
 								/>
 								<p className="text-black leading-relaxed text-sm">
 									{item.text}
