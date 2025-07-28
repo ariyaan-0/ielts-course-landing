@@ -1,12 +1,10 @@
+// src/App.tsx
+
 import "./App.css";
 import ProductPage from "./pages/ProductPage";
 
-function App() {
-	return (
-		<>
-			<ProductPage />
-		</>
-	);
-}
+const App = (): JSX.Element => {
+	return <ProductPage />;
+};
 
 export default App;

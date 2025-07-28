@@ -10,9 +10,7 @@ const ExclusiveFeatures = () => {
 
 	return (
 		<ContentContainer>
-			<h2 className="text-2xl md:text-3xl font-semibold text-black mb-6">
-				{section.name}
-			</h2>
+			<h2 className="text-xl font-semibold mb-4">{section.name}</h2>
 
 			<div className="flex flex-col gap-8">
 				{section.values.map((feature) => (

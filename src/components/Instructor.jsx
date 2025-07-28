@@ -11,7 +11,7 @@ const Instructors = () => {
 
 	return (
 		<ContentContainer>
-			<h2 className="text-xl font-bold mb-4 text-left">
+			<h2 className="text-2xl md:text-3xl font-semibold text-black mb-6">
 				{instructorData.name}
 			</h2>
 			{instructor.map((value) => (

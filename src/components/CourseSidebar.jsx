@@ -9,11 +9,11 @@ const CourseSidebar = () => {
 	const ctaText = product?.data?.cta_text?.value || "Enroll";
 	const [selectedMedia, setSelectedMedia] = useState(media[0]);
 
-	const price = {
-		original: 5000,
-		discounted: 3850,
-		discountAmount: 1150,
-	};
+	// const price = {
+	// 	original: 5000,
+	// 	discounted: 3850,
+	// 	discountAmount: 1150,
+	// };
 
 	return (
 		<div className="w-full bg-white p-1 border shadow-sm">
@@ -59,15 +59,7 @@ const CourseSidebar = () => {
 			{/* Price & CTA */}
 			<div className="text-left space-y-2 mb-4">
 				<div className="flex items-center gap-3 pl-4 pb-4 pt-4">
-					<p className="text-2xl font-bold text-gray-800">
-						৳{price.discounted}
-					</p>
-					<p className="line-through text-gray-400 text-lg">
-						৳{price.original}
-					</p>
-					<span className="text-sm text-white bg-orange-500 px-2 py-0.5 rounded-md">
-						৳ {price.discountAmount} ছাড়
-					</span>
+					<p className="text-2xl font-bold text-gray-800">৳1000</p>
 				</div>
 				<div className="pl-4 pr-4">
 					<button className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-md">

@@ -10,6 +10,8 @@ import {
 	FreeItems,
 	Instructor,
 	LearningOutcome,
+	Payment,
+	Requirements,
 	StudentsOpinion,
 } from "../components";
 import { ProductContext } from "../context/ProductContext";
@@ -55,6 +57,8 @@ const ProductPage = () => {
 						<ExclusiveFeatures />
 						<FreeItems />
 						<StudentsOpinion />
+						<Requirements />
+						<Payment />
 						<FAQ />
 					</div>
 				</div>
