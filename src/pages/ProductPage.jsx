@@ -1,6 +1,14 @@
 import parse from "html-react-parser";
 import { useEffect, useState } from "react";
-import { CourseLayout, CourseSidebar, Instructor } from "../components";
+import {
+	ContentPreview,
+	CourseDetails,
+	CourseLayout,
+	CourseSidebar,
+	ExclusiveFeatures,
+	Instructor,
+	LearningOutcome,
+} from "../components";
 import { ProductContext } from "../context/ProductContext";
 import productAPI from "../services/productAPI";
 
@@ -38,6 +46,10 @@ const ProductPage = () => {
 					<div className="mt-40">
 						<Instructor />
 						<CourseLayout />
+						<LearningOutcome />
+						<ContentPreview />
+						<CourseDetails />
+						<ExclusiveFeatures />
 					</div>
 				</div>
 
