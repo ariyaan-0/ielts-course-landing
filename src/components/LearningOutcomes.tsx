@@ -1,10 +1,21 @@
 import { Check } from "lucide-react";
+import React from "react";
 import { ContentContainer } from ".";
 import { useProduct } from "../context/ProductContext";
 
-const LearningOutcome = () => {
+interface LearningOutcomeItem {
+	id: string;
+	text: string;
+}
+
+interface Section {
+	name: string;
+	values: LearningOutcomeItem[];
+}
+
+const LearningOutcome: React.FC = () => {
 	const product = useProduct();
-	const learningOutcomes = product?.data?.sections[5];
+	const learningOutcomes: Section | undefined = product?.data?.sections?.[5];
 
 	return (
 		<ContentContainer>

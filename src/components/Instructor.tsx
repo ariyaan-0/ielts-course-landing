@@ -1,9 +1,23 @@
 import parse from "html-react-parser";
+import React from "react";
 import { useProduct } from "../context/ProductContext";
 import { ContentContainer } from "./index";
-const Instructors = () => {
+
+interface InstructorValue {
+	slug: string;
+	image: string;
+	name: string;
+	description: string;
+}
+
+interface Section {
+	name: string;
+	values: InstructorValue[];
+}
+
+const Instructors: React.FC = () => {
 	const product = useProduct();
-	const instructorData = product?.data?.sections[2];
+	const instructorData: Section | undefined = product?.data?.sections?.[2];
 
 	if (!instructorData || !instructorData.values?.length) return null;
 

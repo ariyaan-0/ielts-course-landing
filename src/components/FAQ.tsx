@@ -1,17 +1,31 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { ContentContainer } from ".";
 import { useProduct } from "../context/ProductContext";
 
-const FAQ = () => {
-	const product = useProduct();
-	const section = product?.data?.sections?.[15];
+// Define type for each FAQ item
+interface FAQItem {
+	id: string;
+	question: string;
+	answer: string;
+}
 
-	const [openIndex, setOpenIndex] = useState(null);
+// Define type for the section
+interface Section {
+	name: string;
+	values: FAQItem[];
+}
+
+const FAQ: React.FC = () => {
+	const product = useProduct();
+	const section: Section | undefined = product?.data?.sections?.[15];
+
+	// openIndex can be number or null
+	const [openIndex, setOpenIndex] = useState<number | null>(null);
 
 	if (!section || !section.values || section.values.length === 0) return null;
 
-	const toggle = (idx) => {
+	const toggle = (idx: number) => {
 		setOpenIndex((prev) => (prev === idx ? null : idx));
 	};
 

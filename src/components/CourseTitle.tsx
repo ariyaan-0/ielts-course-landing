@@ -1,9 +1,10 @@
+import React from "react";
 import { useProduct } from "../context/ProductContext";
 
-const CourseTitle = () => {
+const CourseTitle: React.FC = () => {
 	const product = useProduct();
 
-	if (!product?.data.title) return null;
+	if (!product?.data?.title) return null;
 
 	return (
 		<div className="w-full text-center py-6">

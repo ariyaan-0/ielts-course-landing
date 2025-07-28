@@ -1,6 +1,7 @@
+import React from "react";
 import { ContentContainer } from ".";
 
-export default function Payment() {
+const Payment: React.FC = () => {
 	return (
 		<ContentContainer>
 			<h2 className="text-2xl md:text-3xl font-semibold text-black mb-6">
@@ -11,4 +12,6 @@ export default function Payment() {
 			</div>
 		</ContentContainer>
 	);
-}
+};
+
+export default Payment;

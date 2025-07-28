@@ -1,11 +1,42 @@
 import { ContentContainer } from ".";
 import { useProduct } from "../context/ProductContext";
 
-const CourseLayout = () => {
+type LayoutItem = {
+	id: string;
+	title: string;
+	subtitle: string;
+	icon: string;
+};
+
+type PDFSection = {
+	background: {
+		image: string;
+	};
+	title: string;
+	description: string;
+	title_color: string;
+	description_color: string;
+	thumbnail: string;
+	cta: {
+		text: string;
+		clicked_url: string;
+	};
+	top_left_icon_img: string;
+};
+
+type LayoutSection = {
+	name: string;
+	values: LayoutItem[];
+};
+
+const CourseLayout = (): JSX.Element | null => {
 	const product = useProduct();
 
-	const layout = product?.data?.sections[3];
-	const pdf = product?.data?.sections[4].values[0];
+	const layout: LayoutSection | undefined = product?.data?.sections?.[3];
+	const pdf: PDFSection | undefined =
+		product?.data?.sections?.[4]?.values?.[0];
+
+	if (!layout) return null;
 
 	return (
 		<ContentContainer>

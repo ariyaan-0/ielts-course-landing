@@ -1,3 +1,4 @@
+import React from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
@@ -7,11 +8,23 @@ import { PlayCircle } from "lucide-react";
 import { ContentContainer } from ".";
 import { useProduct } from "../context/ProductContext";
 
-const StudentsOpinion = () => {
-	const product = useProduct();
-	const section = product?.data?.sections?.[12];
+interface Testimonial {
+	id: string;
+	thumb: string;
+	video_url: string;
+	name: string;
+	description: string;
+}
 
-	if (!section || !section.values || section.values.length === 0) return null;
+interface Section {
+	values: Testimonial[];
+}
+
+const StudentsOpinion: React.FC = () => {
+	const product = useProduct();
+	const section: Section | undefined = product?.data?.sections?.[12];
+
+	if (!section?.values || section.values.length === 0) return null;
 
 	const testimonials = section.values.filter(
 		(item) => item.thumb && item.video_url

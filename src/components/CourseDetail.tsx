@@ -3,15 +3,26 @@ import { useState } from "react";
 import { ContentContainer } from ".";
 import { useProduct } from "../context/ProductContext";
 
-const CourseDetails = () => {
-	const product = useProduct();
-	const section = product?.data?.sections?.[7];
+type SectionItem = {
+	id: string;
+	title: string;
+	description: string;
+};
 
-	const [openIndex, setOpenIndex] = useState(0);
+type Section = {
+	name: string;
+	values: SectionItem[];
+};
+
+const CourseDetails = (): JSX.Element | null => {
+	const product = useProduct();
+	const section: Section | undefined = product?.data?.sections?.[7];
+
+	const [openIndex, setOpenIndex] = useState<number | null>(0);
 
 	if (!section || !section.values || section.values.length === 0) return null;
 
-	const toggle = (idx) => {
+	const toggle = (idx: number) => {
 		setOpenIndex((prev) => (prev === idx ? null : idx));
 	};
 

@@ -1,6 +1,7 @@
+import React from "react";
 import { ContentContainer } from ".";
 
-const FreeItems = () => {
+const FreeItems: React.FC = () => {
 	return (
 		<ContentContainer>
 			<h2 className="text-xl font-semibold mb-4">

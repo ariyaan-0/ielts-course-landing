@@ -1,7 +1,8 @@
 import { Check } from "lucide-react";
+import React from "react";
 import { ContentContainer } from ".";
 
-const Requirements = () => {
+const Requirements: React.FC = () => {
 	return (
 		<ContentContainer>
 			<h2 className="text-2xl md:text-3xl font-semibold text-black mb-6">

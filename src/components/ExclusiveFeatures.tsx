@@ -1,10 +1,24 @@
 import { Check } from "lucide-react";
+import React from "react";
 import { ContentContainer } from ".";
 import { useProduct } from "../context/ProductContext";
 
-const ExclusiveFeatures = () => {
+interface Feature {
+	id: string;
+	title: string;
+	checklist: string[];
+	file_type?: string;
+	file_url?: string;
+}
+
+interface Section {
+	name: string;
+	values: Feature[];
+}
+
+const ExclusiveFeatures: React.FC = () => {
 	const product = useProduct();
-	const section = product?.data?.sections?.[8];
+	const section: Section | undefined = product?.data?.sections?.[8];
 
 	if (!section) return null;
 

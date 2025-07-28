@@ -1,4 +1,7 @@
 class ProductAPI {
+	private baseURL: string;
+	private headers: Record<string, string>;
+
 	constructor() {
 		this.baseURL =
 			"https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-course";
@@ -8,7 +11,7 @@ class ProductAPI {
 		};
 	}
 
-	async fetchProduct(lang) {
+	async fetchProduct(lang: string): Promise<any | null> {
 		try {
 			if (!lang) {
 				throw new Error("The 'lang' parameter is required.");

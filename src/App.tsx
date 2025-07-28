@@ -1,6 +1,3 @@
-// src/App.tsx
-
-import "./App.css";
 import ProductPage from "./pages/ProductPage";
 
 const App = (): JSX.Element => {

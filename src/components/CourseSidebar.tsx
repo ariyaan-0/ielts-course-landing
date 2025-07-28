@@ -1,19 +1,30 @@
 import { useState } from "react";
 import { useProduct } from "../context/ProductContext";
 
-const CourseSidebar = () => {
+type MediaItem = {
+	resource_type: "video" | "image";
+	resource_value: string;
+	thumbnail_url?: string;
+};
+
+type ChecklistItem = {
+	id: string;
+	icon: string;
+	text: string;
+};
+
+const CourseSidebar = (): JSX.Element | null => {
 	const product = useProduct();
 
-	const media = product?.data?.media || [];
-	const checklist = product?.data?.checklist || [];
-	const ctaText = product?.data?.cta_text?.value || "Enroll";
-	const [selectedMedia, setSelectedMedia] = useState(media[0]);
+	const media: MediaItem[] = product?.data?.media || [];
+	const checklist: ChecklistItem[] = product?.data?.checklist || [];
+	const ctaText: string = product?.data?.cta_text?.value || "Enroll";
 
-	// const price = {
-	// 	original: 5000,
-	// 	discounted: 3850,
-	// 	discountAmount: 1150,
-	// };
+	const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(
+		media[0] || null
+	);
+
+	if (!selectedMedia) return null;
 
 	return (
 		<div className="w-full bg-white p-1 border shadow-sm">

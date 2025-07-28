@@ -8,7 +8,18 @@ import {
 import { useState } from "react";
 import { ContentContainer } from ".";
 
-const sampleContent = [
+type ContentItem = {
+	type: "video" | "text";
+	title: string;
+	free: boolean;
+};
+
+type Section = {
+	title: string;
+	items: ContentItem[];
+};
+
+const sampleContent: Section[] = [
 	{
 		title: "Introduction",
 		items: [
@@ -91,10 +102,12 @@ const sampleContent = [
 	},
 ];
 
-const ContentPreview = () => {
-	const [openSections, setOpenSections] = useState({ 0: true });
+const ContentPreview = (): JSX.Element => {
+	const [openSections, setOpenSections] = useState<Record<number, boolean>>({
+		0: true,
+	});
 
-	const toggleSection = (idx) => {
+	const toggleSection = (idx: number) => {
 		setOpenSections((prev) => ({ ...prev, [idx]: !prev[idx] }));
 	};
 
